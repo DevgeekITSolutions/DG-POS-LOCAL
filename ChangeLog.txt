@@ -1,0 +1,61 @@
+Version 1.0.2
+	Changed
+	- Loading Progressbar color to yellow
+	- Beginning balance design
+	Fixed
+	- Product Update connection time out error
+	- Script runner query format
+	- Manage product add products form not closing
+Version 1.0.3
+	Changed
+	- Product category layout at pos form to fit POS unit screen
+	- Manage product > Custom Products(Pending) change Add New Product Panel to Form
+	- New tab for product price change Pending and Approved
+	Fixed
+	- Applying mark up without ordering products when selecting Gcash as transaction type
+	- Add New Product bugs
+Version 1.0.4
+	Changed
+	- Inventory > Stock Adjustment New Panel to Form
+	- Inventory > Stock Adjustment New Layout to fit POS unit screen
+	- Inventory > Stock In (Receiving) Entry Add Stock panel to form
+	Fixed
+	- Inventory > Stock Adjustment computation bugs
+	- Inventory > Stock In (Receiving) Entry Add Stock bug fixed
+Version 1.0.5
+	Added
+	- Reports > New tab for Crew Sales summarization 
+	- Function for summarizing crew sales
+	- Auto click on Daily Transaction tab to show transaction order details
+	Fixed
+	- Reports datagridview column names
+	- Cell click bug (Showing error while clicking column name at Daily Transaction tab)
+	- Cell click bug (Showing error while clicking column name at Expense Report tab)
+Version 1.0.6
+	Changed
+	- Sync Form layout
+	- Change POS product display name to product SKU
+	- Pending Orders form design
+	- Hold Order design
+	Fixed
+	- Sync Form Bugs
+Version 1.0.7
+	Added
+	- Led display settings
+Version 1.0.8
+	Added
+	- Printing Options
+Version 1.0.9
+	Added
+	- No sales transaction mode/ Training mode
+Version 1.1.1
+	Fixed
+	- Zero rated sales amount due
+Version 1.1.2
+	Fixed
+	- Zero rated sales computation
+	- Bug at Payment form on Amount Tendered if its empty
+Version 1.1.3
+	Fixed
+	- Take Out form bug
+	
