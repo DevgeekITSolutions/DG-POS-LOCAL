@@ -141,7 +141,7 @@ Public Class CouponCode
 
                         Dim DISCOUNTAMOUNT As Double = SeniorPWd + SeniorPWdDrinks
 
-                        MsgBox(DISCOUNTAMOUNT)
+
 
                         Dim VATEXEMPTSALES As Double = Format(DISCOUNTAMOUNT / Tax, "0.00")
                         'MsgBox("VAT EXEMPT SALES : " & VATEXEMPTSALES)

@@ -1121,10 +1121,19 @@ Public Class Reports
                 abc = 40
             End If
             Try
-                Dim Query1 As String = "SELECT senior_name FROM loc_senior_details WHERE transaction_number = '" & DataGridViewDaily.SelectedRows(0).Cells(0).Value & "'"
-                Dim CmdQ As MySqlCommand = New MySqlCommand(Query1, LocalhostConn)
-                Dim result = CmdQ.ExecuteScalar()
-                SimpleTextDisplay(sender, e, result, font, 30, 82)
+                Dim ConnectionLocal As MySqlConnection = LocalhostConn()
+                Dim Query1 As String = "SELECT senior_name, senior_id FROM loc_senior_details WHERE transaction_number = '" & DataGridViewDaily.SelectedRows(0).Cells(0).Value & "'"
+                Dim CmdQ As MySqlCommand = New MySqlCommand(Query1, ConnectionLocal)
+                Using reader As MySqlDataReader = CmdQ.ExecuteReader
+                    If reader.HasRows Then
+                        While reader.Read
+                            SimpleTextDisplay(sender, e, reader("senior_name") & " - " & reader("senior_id"), font, 30, 82)
+                        End While
+                    End If
+                End Using
+                CmdQ.Dispose()
+                ConnectionLocal.Close()
+
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
@@ -2023,8 +2032,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Simply Perfect" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2065,8 +2074,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Perfect Combination" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2105,8 +2114,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Premium" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2146,8 +2155,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Combo" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2186,8 +2195,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Savory" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2226,8 +2235,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Famous Blends" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2265,8 +2274,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Add-Ons" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."
@@ -2307,8 +2316,8 @@ Public Class Reports
             For i As Integer = 0 To DataGridViewSales.Rows.Count - 1 Step +1
 
                 If DataGridViewSales.Rows(i).Cells(6).Value.ToString = "Others" Then
-                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(1).Value.Length, 15)
-                    title = DataGridViewSales.Rows(i).Cells(1).Value.Substring(0, maxLength)
+                    maxLength = Math.Min(DataGridViewSales.Rows(i).Cells(0).Value.Length, 15)
+                    title = DataGridViewSales.Rows(i).Cells(0).Value.Substring(0, maxLength)
 
                     If maxLength = 15 Then
                         title &= ".."

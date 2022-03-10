@@ -14,7 +14,7 @@ Public Class SeniorDetails
             If TextboxIsEmpty(Me) Then
                 Dim LimitToOne As Boolean = False
                 Dim ConnectionLocal As MySqlConnection = LocalhostConn()
-                Dim SQL = "SELECT senior_id FROM `loc_senior_details` WHERE senior_id = '" & Trim(TextBoxSENIORID.Text) & "'"
+                Dim SQL = "SELECT senior_id FROM `loc_senior_details` WHERE senior_id = '" & Trim(TextBoxSENIORID.Text) & "' AND date_created = '" & S_Zreading & "'"
                 Console.WriteLine(SQL)
                 Dim Cmd As MySqlCommand = New MySqlCommand(SQL, ConnectionLocal)
                 Using reader As MySqlDataReader = Cmd.ExecuteReader

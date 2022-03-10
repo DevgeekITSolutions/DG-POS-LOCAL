@@ -516,7 +516,7 @@ Module publicfunctions
 
 
             If SENIORDETAILSBOOL = True Then
-                SimpleTextDisplay(sender, e, SeniorDetailsName, font, 30, 82 + AddLine)
+                SimpleTextDisplay(sender, e, SeniorDetailsName & " - " & SeniorDetailsID, font, 30, 82 + AddLine)
             End If
 
 

@@ -1169,7 +1169,7 @@ Public Class POS
                       , '" & ClientCrewID & "'
                       , '" & ClientStoreID & "'
                       , '" & ClientGuid & "'
-                      , '" & FullDate24HR() & "'
+                      , '" & S_Zreading & "'
                       , 'Unsynced')"
             GLOBAL_INSERT_FUNCTION(table, fields, value)
         Catch ex As Exception
